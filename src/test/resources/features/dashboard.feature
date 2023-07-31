@@ -1,3 +1,4 @@
+@regression
 Feature: Dashboard test
 
   Scenario: Dashboard Menu test (Usage of cucumber list)

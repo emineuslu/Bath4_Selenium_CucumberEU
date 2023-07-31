@@ -1,3 +1,4 @@
+@regression
 Feature: Add Education Tests
 
   Scenario: Add education form labels test
