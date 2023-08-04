@@ -3,6 +3,7 @@ package com.kraftTech.step_defs;
 
 import com.kraftTech.pages.AddEducationPage;
 import com.kraftTech.utilities.BrowserUtils;
+import com.kraftTech.utilities.ExcelUtil;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.DataTableType;
 import io.cucumber.java.en.Then;
@@ -11,6 +12,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.junit.Assert;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 public class AddEducation_StepDefs {
@@ -47,4 +49,20 @@ public class AddEducation_StepDefs {
     public void the_user_fills_the_education_form_with(String school, String degree, String study, String fromDate, String toDate, String desc) {
         addEducationPage.fillingEducationForm(school, degree, study, fromDate, toDate, desc);
     }
+
+    @When("The user fills the Add Education Form with excel file {string}, {string}, {int}")
+    public void the_user_fills_the_add_education_form_with_excel_file(String path, String sheetName, Integer row) {
+        ExcelUtil excelUtil=new ExcelUtil(path,sheetName);
+        List<Map<String, String>> dataList = excelUtil.getDataList();
+
+        String school=dataList.get(row).get("school");
+        String degree=dataList.get(row).get("degree");
+        String study=dataList.get(row).get("study");
+        String fromDate=dataList.get(row).get("fromdate");
+        String toDate=dataList.get(row).get("Todate");
+        String description=dataList.get(row).get("Program Desc");
+
+        addEducationPage.fillingEducationForm(school,degree,study,fromDate,toDate,description);
+    }
 }
+

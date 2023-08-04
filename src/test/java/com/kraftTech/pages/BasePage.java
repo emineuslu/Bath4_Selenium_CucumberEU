@@ -8,6 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
+import java.util.Map;
 
 public abstract class BasePage {
     public BasePage() {
@@ -37,6 +38,10 @@ public abstract class BasePage {
 
     public void clickElement(WebElement element) {
         element.click();
+    }
+    public List<Map<String, String >> getExcelData(String path,String sheetName){
+        return " ";
+
     }
 
 }
