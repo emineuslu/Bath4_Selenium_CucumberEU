@@ -26,7 +26,7 @@ Feature: Login Functionality
     Then The user should be able to login
     * Verify that the username on the dashboard page is "Melih Gezer"
 
-
+@a
   Scenario: Login with parameter
     Given The user is on the login page
     When The user logs in with valid credentials "rosa@test.com" and "Test123456"
