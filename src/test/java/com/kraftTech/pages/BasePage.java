@@ -8,41 +8,37 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
-import java.util.Map;
+
 
 public abstract class BasePage {
-    public BasePage() {
-        PageFactory.initElements(Driver.get(), this);
+    public BasePage(){
+        PageFactory.initElements(Driver.get(),this);
     }
 
     @FindBy(css = "nav>ul>li")
     public List<WebElement> basePageTabs;
 
-    public void navigateToTabsAndModules(String tabName, String moduleName) {
-        String tabXpath = "//span[text()='" + tabName + "']";
+    public void navigateToTabsAndModules(String tabName,String moduleName){
+        String tabXpath="//span[text()='"+tabName+"']";
 
-        WebElement tab = Driver.get().findElement(By.xpath(tabXpath));
+        WebElement tab=Driver.get().findElement(By.xpath(tabXpath));
         tab.click();
 
-        if (!moduleName.isEmpty()) {
-            String moduleXpath = "//span[text()='" + moduleName + "']";
-            WebElement module = Driver.get().findElement(By.xpath(moduleXpath));
+        if (!moduleName.isEmpty()){
+            String moduleXpath="//span[text()='"+moduleName+"']";
+            WebElement module=Driver.get().findElement(By.xpath(moduleXpath));
             module.click();
         }
 
     }
 
-    public String getElementText(WebElement element) {
+    public String getElementText(WebElement element){
         return element.getText();
     }
 
-    public void clickElement(WebElement element) {
+    public void clickElement(WebElement element){
         element.click();
     }
-    public List<Map<String, String >> getExcelData(String path,String sheetName){
-        return "";
-
-    }
-
 }
+
 
